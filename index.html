@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            display: flex;
+            align-items: stretch;
+            min-height: 100vh;
+            animation: sexySlide 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        .sidepage {
+            width: 50%;
+            background-image: url("bcimg.jpg.jpg");
+            background-size: cover;
+            background-position: center;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .sidepage h1 {
+            margin-bottom: 25px;
+            font-size: 42px;
+        }
+
+        .sidepage p {
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        .signinpage {
+            width: 50%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .signinpage h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .signinpage p {
+            color: gray;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .email,
+        .password {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .email input,
+        .password input {
+            width: 100%;
+            padding: 15px;
+            margin: 12px 0;
+            background-color: #eff6ff;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        .email input:focus,
+        .password input:focus {
+            border-color: #4338ca;
+            box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.12);
+        }
+
+        .remember {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            max-width: 500px;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+
+        .remember label {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .remember a,
+        .signup a {
+            color: #4338ca;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .remember a:hover,
+        .signup a:hover {
+            color: #1e1b4b;
+            text-decoration: underline;
+        }
+
+        .button,
+        .google {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px;
+            margin: 10px auto;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .button {
+            background-color: #4338ca;
+        }
+
+        .button button {
+            width: 100%;
+            background: transparent;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #312e81;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(67, 56, 202, 0.25);
+        }
+
+        .or {
+            width: 100%;
+            max-width: 500px;
+            margin: 25px 0;
+            color: gray;
+        }
+
+        .or hr {
+            margin-top: 15px;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+
+        .google {
+            background-color: whitesmoke;
+            border: 1px solid #e5e7eb;
+        }
+
+        .google button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .google img {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+        }
+
+        .google:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            background-color: #e5e7eb;
+        }
+
+        .signup {
+            margin-top: 15px;
+        }
+
+        .signup p {
+            margin-bottom: 0;
+        }
+
+        @keyframes sexySlide {
+            from {
+                opacity: 0;
+                transform: translateX(70px) scale(0.97);
+                filter: blur(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        main.slide-out {
+            animation: slideOut 0.35s ease-in forwards;
+        }
+
+        @keyframes slideOut {
+            to {
+                opacity: 0;
+                transform: translateX(-100px);
+                filter: blur(3px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+
+            .sidepage,
+            .signinpage {
+                width: 100%;
+            }
+
+            .sidepage {
+                min-height: 250px;
+            }
+
+            .sidepage h1 {
+                font-size: 32px;
+            }
+
+            .signinpage {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            main {
+                animation: none;
+            }
+
+            main.slide-out {
+                animation: none;
+            }
+
+            .button,
+            .google,
+            .email input,
+            .password input {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section class="sidepage">
+            <h1>Welcome Back!</h1>
+            <p>Login to continue your<br> journey with us.</p>
+        </section>
+
+        <section class="signinpage">
+            <h2>Login</h2>
+            <p>Enter your email and password to access your account.</p>
+
+            <label class="email" for="email">
+                <input id="email" type="email" placeholder="Email address">
+            </label>
+
+            <label class="password" for="password">
+                <input id="password" type="password" placeholder="Password">
+            </label>
+
+            <div class="remember">
+                <label>
+                    <input type="checkbox">
+                    <span>Remember me</span>
+                </label>
+
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <div class="button">
+                <button type="button">Login</button>
+            </div>
+
+            <div class="or">
+                <span>OR</span>
+                <hr>
+            </div>
+
+            <div class="google">
+                <button type="button">
+                    <img src="https://static.vecteezy.com/system/resources/previews/072/677/661/non_2x/google-search-logo-icon-free-png.png"
+                        alt="Google">
+                    <span>Continue with Google</span>
+                </button>
+            </div>
+
+            <div class="signup">
+                <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.querySelectorAll('a[href="signup.html"], a[href="index.html"]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const target = this.href;
+                const main = document.querySelector('main');
+
+                main.classList.add('slide-out');
+
+                setTimeout(() => {
+                    window.location.href = target;
+                }, 350);
+            });
+        });
+    </script>
+</body>
+
+</html>
+```
